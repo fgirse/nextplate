@@ -1,8 +1,38 @@
+"use client"
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import Image from 'next/image'
 import Logo from "../../../public/images/LogoWA.png"
+import { stringify } from 'querystring'
 
 const RegisterPage = () => {
+
+  const router = useRouter()
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password:""
+
+
+  })
+
+  const registerUser = async (e) => {
+    e.preventDefault()
+    const response = await fetch("/api/register",{
+method: 'POST',
+headers: {
+  'Content-Type':'application/json'
+  },
+body: JSON.stringify({data})
+    })
+
+const userInfo = await response.json()
+console.log(userInfo)
+router.push('/login')
+  }
+
   return (
     <>
     <div className=" bg-stone-600 flex w-1/3 mx-auto min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -33,14 +63,15 @@ const RegisterPage = () => {
             </div>
           </div>
           <div className="mt-2">
-            <input
-              id="name"
-              name="name"
-              type="name"
-              autoComplete="current-name"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+          <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={data.name}
+                    onChange={e => setData({ ...data, name: e.target.value })}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
           </div>
         </div>
         <div>
@@ -49,14 +80,16 @@ const RegisterPage = () => {
             Email address
           </label>
           <div className="mt-2">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+          <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={data.email}
+                    onChange={e => setData({ ...data, email: e.target.value })}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
           </div>
         </div>
 
@@ -72,14 +105,16 @@ const RegisterPage = () => {
             </div>
           </div>
           <div className="mt-2">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+          <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={data.password}
+                    onChange={e => setData({ ...data, password: e.target.value })}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
           </div>
         </div>
 
