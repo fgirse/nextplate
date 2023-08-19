@@ -1,18 +1,18 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Next Project"
-  content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
-  image: "/images/banner.png"
+  title: "Wohntraum Andalusia"
+  content: "Wir als erfahrene Immobilien Dienstleister verwirklichnen Ihnen Ihren Traum einer Immobilie im wunderschönen Andalusien."
+  image: "/images/images.webp"
   button:
     enable: true
-    label: "Get Started For Free"
+    label: "Kontaktieren Sie uns"
     link: "https://github.com/zeon-studio/nextplate"
 
 # Features
 features:
   - title: "What's Included in Nextplate"
-    image: "/images/service-1.png"
+    image: "/images/Beispiel_02.png"
     content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
     bulletpoints:
       - "10+ Pre-build pages"

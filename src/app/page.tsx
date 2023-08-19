@@ -28,11 +28,11 @@ const Home = () => {
           <div className="row justify-center">
             <div className="mb-16 text-center lg:col-7">
               <h1
-                className="mb-4"
+                className="mb-4 lg:text-[5.33rem] text-amber-500 font-bowlbySC dark:font-secondary"
                 dangerouslySetInnerHTML={markdownify(banner.title)}
               />
               <p
-                className="mb-8"
+                className="mb-8 "
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
               />
               {banner.button!.enable && (
@@ -45,8 +45,8 @@ const Home = () => {
               <div className="col-12">
                 <ImageFallback
                   src={banner.image}
-                  className="mx-auto"
-                  width="800"
+                  className="border-8 rounded-xl mx-auto"
+                  width="1166"
                   height="420"
                   alt="banner image"
                   priority

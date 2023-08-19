@@ -6,6 +6,27 @@ import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
 import "@/styles/main.scss";
 
+//Google Fonds implementieren
+import { Architects_Daughter, Londrina_Shadow, Bowlby_One_SC } from 'next/font/google';
+ 
+
+const archiDaughter = Architects_Daughter({
+  subsets: ['latin'],
+  weight: ['400', ],
+    variable: '--font-archiDaught',
+});
+
+const londrinaS = Londrina_Shadow({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-londrinaS',
+});
+const bowlbySC = Bowlby_One_SC({
+  subsets: ['latin'],
+  weight: ['400',],
+  variable: '--font-bowlbySC',
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -16,7 +37,8 @@ export default function RootLayout({
   const sf = theme.fonts.font_family.secondary;
 
   return (
-    <html suppressHydrationWarning={true} lang="en">
+    <html lang="en" className={`${bowlbySC.variable} ${archiDaughter.variable} ${londrinaS.variable}`}>
+
       <head>
         {/* responsive meta */}
         <meta
@@ -55,12 +77,14 @@ export default function RootLayout({
       </head>
 
       <body suppressHydrationWarning={true}>
+        < div className={archiDaughter.className}>
         <TwSizeIndicator />
         <Providers>
           <Header />
           <main>{children}</main>
           <Footer />
         </Providers>
+        </div>
       </body>
     </html>
   );

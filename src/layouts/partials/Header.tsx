@@ -41,7 +41,7 @@ const Header = () => {
     >
       <nav className="navbar container">
         {/* logo */}
-        <div className="order-0">
+        <div className="order-0 bg-stone-800 rounded-xl dark:bg-stone-600">
           <Logo />
         </div>
         {/* navbar toggler */}
@@ -158,7 +158,10 @@ const Header = () => {
             </Link>
           )}
         </div>
+      <Link className="uppercase w-36 text-white text-center rounded-xl borfer- bg-amber-600 hover:bg-amber-400 hover:border-2 hover:scale-125 " href="/register">Registration</Link>
+      <Link className="uppercase w-24 text-white text-center rounded-xl borfer- bg-stone-600 hover:bg-stone-400 hover:border-2 hover:scale-125 " href="/signin">Login</Link>
       </nav>
+      
     </header>
   );
 };
